@@ -1,10 +1,32 @@
 fn main() {
-    let x = 5;
+    let guess: i32 = "-43".parse().expect("Not a number!");
+    println!("{}",guess);
 
-    let x = x + 1;
-    {
-        let x = x * 2;
-        println!("The value of x in the inner scope is: {}",x);
-    }
-    println!("The value of x is: {}", x);
+    //
+    //タプル型
+    //
+
+    // タプル型の型注釈と代入、
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+
+    let (_x,y,_z) = tup;
+
+    println!("The value of y is: {}", y);
+
+    //タプル型の要素の呼び出し。
+    let five_hunderd = tup.0;
+    let six_point_four = tup.1;
+    let one = tup.2;
+
+    println!("The value of first element in tup is: {}", five_hunderd);
+    println!("The value of second element in tup is: {}", six_point_four);
+    println!("The value of third element in tup is: {}", one);
+
+
+    //
+  　//配列型
+    //
+
+    
+
 }
