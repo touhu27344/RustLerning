@@ -29,6 +29,7 @@ fn main() {
     //配列型
     //
 
+    /*
     //配列型の宣言と型注釈
     let a = [1,2,3,4,5];
     let _months = ["January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"];
@@ -40,7 +41,37 @@ fn main() {
 
     println!("The value of first element in a is: {}",first);
     println!("The value of second element in a is: {}",second);
+    */
 
+    //
+    //関数
+    //
 
+    //関数の定義 (関数_i)
+    println!("Hello, world!");
 
+    another_function(5);
+
+    //関数の引数（関数_ii)
+    print_labeled_mesurement(5,'h');
+
+    //戻り値のある関数(関数_iii)
+    let x = plus_one(5);
+    println!("The value of x is:{}", x);
+
+}
+
+//関数_i
+fn another_function(x: i32) {
+    println!("The value of x is: {}",x);
+}
+
+//関数_ii
+fn print_labeled_mesurement(value: i32, unit_label: char) {
+    println!("The mesurement is: {}{}",value,unit_label);
+}
+
+//関数_iii
+fn plus_one(x: i32) -> i32 {
+    x+1 //戻り値には;を付けない。
 }
