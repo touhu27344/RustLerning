@@ -29,6 +29,7 @@ fn main() {
     //関数とスコープ
     //
 
+    /*
     let s = String::from("hello"); //sスコープに入る
     takes_ownership(s);            //sが関数にムーブ
 　//println!("{}",s);          //ERR,sがスコープを抜けている。
@@ -45,7 +46,23 @@ fn main() {
     let s2 = String::from("hello");  // s2 がスコープに入る。
 
     let s3 = takes_and_gives_backs(s2); //s2 => takes_and_gives_backs　でムーブ、さらに　takes_and_gives_backs => s3　でムーブ
+    */
 
+    //
+    //参照と借用
+    //
+
+    //&s:参照 &mut s:可変参照
+
+    let s1 = String::from("hello");
+    let len = caluculate_length(&s1);
+
+    println!("The length of '{}' is {}.",s1,len);
+
+    //可変な参照
+    let mut s = String::from("hello");
+
+    change(&mut s);
 }
 
 fn takes_ownership(some_string: String) {
@@ -63,4 +80,12 @@ fn gives_ownership() -> String {
 
 fn takes_and_gives_backs(a_string: String) -> String {
     a_string
+}
+
+fn caluculate_length(s: &String) -> usize {
+    s.len()
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(",world");
 }
