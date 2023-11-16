@@ -30,28 +30,28 @@ fn main() {
     //
 
     /*
-    let s = String::from("hello"); //sスコープに入る
-    takes_ownership(s);            //sが関数にムーブ
-　//println!("{}",s);          //ERR,sがスコープを抜けている。
+        let s = String::from("hello"); //sスコープに入る
+        takes_ownership(s);            //sが関数にムーブ
+    //println!("{}",s);          //ERR,sがスコープを抜けている。
 
-    let x = 5;
-    makes_copy(x);
+        let x = 5;
+        makes_copy(x);
 
-    //
-    //戻り値とスコープ
-    //
+        //
+        //戻り値とスコープ
+        //
 
-    let s1 = gives_ownership();   //gives_ownership => s1　でムーブ
+        let s1 = gives_ownership();   //gives_ownership => s1　でムーブ
 
-    let s2 = String::from("hello");  // s2 がスコープに入る。
+        let s2 = String::from("hello");  // s2 がスコープに入る。
 
-    let s3 = takes_and_gives_backs(s2); //s2 => takes_and_gives_backs　でムーブ、さらに　takes_and_gives_backs => s3　でムーブ
-    */
+        let s3 = takes_and_gives_backs(s2); //s2 => takes_and_gives_backs　でムーブ、さらに　takes_and_gives_backs => s3　でムーブ
+        */
 
     //
     //参照と借用
     //
-
+    /*
     //&s:参照 &mut s:可変参照
 
     let s1 = String::from("hello");
@@ -63,6 +63,20 @@ fn main() {
     let mut s = String::from("hello");
 
     change(&mut s);
+
+    */
+
+    //
+    //スライス型
+    //
+
+    let mut s = String::from("hello world");
+
+    let word = first_word(&s);
+    let hello = &s[0..5];
+    let world = &s[6..11];
+
+    s.clear();
 }
 
 fn takes_ownership(some_string: String) {
@@ -70,7 +84,7 @@ fn takes_ownership(some_string: String) {
 }
 
 fn makes_copy(some_integer: i32) {
-    println!("{}",some_integer);
+    println!("{}", some_integer);
 }
 
 fn gives_ownership() -> String {
@@ -89,3 +103,16 @@ fn caluculate_length(s: &String) -> usize {
 fn change(some_string: &mut String) {
     some_string.push_str(",world");
 }
+
+fn first_word(s: &String) -> usize {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+    &s[..]
+}
+
+fn second_word(s: &String) -> (usize, usize) {}
