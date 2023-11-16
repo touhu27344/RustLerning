@@ -104,7 +104,7 @@ fn change(some_string: &mut String) {
     some_string.push_str(",world");
 }
 
-fn first_word(s: &String) -> usize {
+fn first_word(s: &String) -> &str {
     let bytes = s.as_bytes();
 
     for (i, &item) in bytes.iter().enumerate() {
@@ -114,5 +114,3 @@ fn first_word(s: &String) -> usize {
     }
     &s[..]
 }
-
-fn second_word(s: &String) -> (usize, usize) {}
