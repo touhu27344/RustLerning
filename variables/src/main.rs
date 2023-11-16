@@ -91,7 +91,7 @@ fn main() {
     //
     //loop 文
     //
-
+    /*
     //loopラベルを用いたbreak,continue
     let mut count = 0;
     'counting_up: loop {
@@ -136,6 +136,7 @@ fn main() {
         println!("{}!", number);
     }
     println!("LIFTOFF!!!");
+    */
 
 }
 
